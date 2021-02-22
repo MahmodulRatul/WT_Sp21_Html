@@ -15,10 +15,16 @@
 	$err_num="";
 	$gender="";
 	$err_gender="";
+	$day="";
+	$err_day="";
+	$month="";
+	$err_month="";
+	$year="";
+	$err_year="";
 	$bio="";
 	$err_bio="";
-	$hobbies="";
-	$err_hobbies="";
+	$sources="";
+	$err_sources="";
 	
 	/*error_reporting(E_ALL & E_STRICT);
 	ini_set('display_errors', '1');
@@ -26,42 +32,121 @@
 	ini_set('error_log', './');*/
 		if	($_SERVER["REQUEST_METHOD"]=="POST")
 		{
-			if (count($_POST["name"])<6)
+			if (empty($_POST["name"]))
 			{
-				$err_name="**Name length must be more than 6";
-			}
-			elseif(strpos($_POST["name"]," "))
-			{
-				$err_name="** ':' is not allowed in Name";
+				$err_name="**Name Required";
 			}
 			else
 			{
 				$name=$_POST["name"];
 			}
-			if (empty($_POST["uname"]))
+			
+			if (strlen($_POST["uname"])<6)
 			{
-				$err_uname="**Username Required";
+				$err_uname="**Username length must be 6 or longer";
 			}
-			else if(strlen($_POST["uname"])<8)
+			elseif(strpos($_POST["uname"]," "))
 			{
-				$err_uname="**Username must be 8 charachters long";
+				$err_uname="** 'space' is not allowed in Username";
 			}
 			else
 			{
 				$uname=$_POST["uname"];
 			}
-			if (empty($_POST["pass"]))
+			if(strlen($_POST["pass"])>8)
 			{
-				$err_pass="**Password Required";
+				$pass=$_POST["pass"];
+			if ((!strpos($_POST["pass"],"#"))||(!strpos($_POST["pass"],"?")))
+				{
+				$err_pass="**Password should have minimum 1 character '?'or'#'";
+				}
+				for ($l=0;$l<strlen($_POST["pass"]);$l++)
+				{
+					if (ctype_lower($_POST["pass"][$l]))
+					{
+						break;
+					}
+					else
+					{
+						$err_pass="**Password should have minimum 1 lower case letter";
+					}
+				}
+				for ($m=0;$m<strlen($_POST["pass"]);$m++)
+				{
+					if (ctype_upper($_POST["pass"][$m]))
+					{
+						break;
+					}
+					else
+					{
+						$err_pass="**Password should have minimum 1 upper case letter";
+					}
+				}
+				for($n=0;$n<strlen($_POST["pass"]);$n++)
+				{
+					if(is_numeric($_POST["pass"][$n]))
+					{
+						break;
+					}
+					else
+					{
+						$err_pass="**Password should have minimum 1 numeric character";
+					}
+				}
 			}
-			 elseif(strpos($_POST["pass"],":"))
+			else	
+			$err_pass="**Password length must be 8 or longer";
+			
+			if($_POST["cpass"]!=$_POST["pass"])
 			{
-				$err_pass="**Password should not contain ':'";
+				$err_cpass="**Password Didn't matched";
+			}
+			else{$cpass=$_POST["cpass"];}
+			
+			if(strpos($_POST["email"],"@"))
+			{if(strpos($_POST["email"],"."))
+			$email=$_POST["email"];
+			}
+			else $err_email="**Email should contain '@' and '.' sequentially";
+			
+			if(!is_numeric($_POST["code"]))
+			{
+				$err_code="**Code should be numeric";
+			}
+			else $num=$_POST["num"];
+			
+			if(!is_numeric($_POST["num"]))
+			{
+				$err_num="**Number should be numeric";
+			}
+			else $num=$_POST["num"];
+			
+			
+			if (!isset($_POST["day"]))
+			{
+				$err_day="**Day must be selected";
 			}
 			else
 			{
-				$pass=$_POST["pass"];
+				$day=$_POST["day"];
 			}
+			if (!isset($_POST["month"]))
+			{
+				$err_month="**Month must be selected";
+			}
+			else
+			{
+				$month=$_POST["month"];
+			}
+			if (!isset($_POST["year"]))
+			{
+				$err_year="**Year must be selected";
+			}
+			else
+			{
+				$year=$_POST["year"];
+			}
+			
 			if (empty($_POST["bio"]))
 			{
 				$err_bio="**Bio can not be blank";
@@ -71,14 +156,7 @@
 				$bio=$_POST["bio"];
 			}
 			
-			if (!isset($_POST["profession"]))
-			{
-				$err_profession="**Profession must be selected";
-			}
-			else
-			{
-				$profession=$_POST["profession"];
-			}
+			
 			
 			if(!isset($_POST["gender"]))
 			{
@@ -89,17 +167,17 @@
 				$gender=$_POST["gender"];
 			}
 			
-			if(!isset($_POST["hobbies"]))
+			if(!isset($_POST["sources"]))
 			{
-				$err_hobbies="**Least a hobby have to be selected";
+				$err_sources="**Least 1 source have to be ticked";
 			}
 			else
 			{
-				$hobbies=$_POST["hobbies"];
+				$sources=$_POST["sources"];
 			}
-		/*echo "Username: ".$_POST["uname"]."<br>";
-		echo "Password: ".$_POST["pass"]."<br>";
-		echo "Gender: ".$_POST["gender"]."<br>";
+		echo "Name: ".htmlspecialchars($_POST["name"])."<br>";
+		echo "Password: ".htmlspecialchars($_POST["pass"])."<br>";
+		/*echo "Gender: ".$_POST["gender"]."<br>";
 		$arr=$_POST["hobbies"];$flag=0;
 		echo "Hobbies: ";
 		for($i=0;$i<count($arr);$i++)
@@ -109,7 +187,7 @@
 		}
 		echo"<br>";
 		echo "Profession: ".$_POST["profession"]."<br>";
-		echo "Bio: ".$_POST["bio"]."<br>";*/
+		echo "Bio: ".htmlspecialchars($_POST["bio"])."<br>";*/
 		}
 ?>
 <html>
@@ -200,6 +278,7 @@
 					?>
 				</select>
 				</td>
+				<td><?php echo "$err_day"."  "."$err_month"."  "."$err_year"?></td>
 				</tr>
 				<tr>
 				<td><span>Gender</span></td>
@@ -213,7 +292,7 @@
 					<td><input type="checkbox" value="friend" name ="sources[]">A Friend or Colleague<br>
 					<input type="checkbox"value="google" name ="sources[]">Google<br>
 					<input type="checkbox"value="blog" name ="sources[]">Blog Post<br>
-					<input type="checkbox"value="news" name ="sources[]">News Article</td><td> <span><?php echo $err_hobbies;?></span></td></br>
+					<input type="checkbox"value="news" name ="sources[]">News Article</td><td> <span><?php echo $err_sources;?></span></td></br>
 				</tr>			
 				<tr>
 				<td><span>Bio</span></td>
