@@ -5,17 +5,17 @@
 	$err_pass="";
 	$bio="";
 	$err_bio="";
-	$prof="";
-	$err_prof="";
+	$profession="";
+	$err_profession="";
 	$gender="";
 	$err_gender="";
-	$hobby="";
-	$err_hobby="";
+	$hobbies="";
+	$err_hobbies="";
 	
-	error_reporting(E_ALL & E_STRICT);
+	/*error_reporting(E_ALL & E_STRICT);
 	ini_set('display_errors', '1');
 	ini_set('log_errors', '0');
-	ini_set('error_log', './');
+	ini_set('error_log', './');*/
 		if	($_SERVER["REQUEST_METHOD"]=="POST")
 		{
 			if (empty($_POST["uname"]))
@@ -53,11 +53,11 @@
 			
 			if (!isset($_POST["profession"]))
 			{
-				$err_prof="**Profession must be selected";
+				$err_profession="**Profession must be selected";
 			}
 			else
 			{
-				$prof=$_POST["profession"];
+				$profession=$_POST["profession"];
 			}
 			
 			if(!isset($_POST["gender"]))
@@ -71,13 +71,13 @@
 			
 			if(!isset($_POST["hobbies"]))
 			{
-				$err_hobby="**Least a hobby have to be selected";
+				$err_hobbies="**Least a hobby have to be selected";
 			}
 			else
 			{
-				$hobby=$_POST["hobbies"];
+				$hobbies=$_POST["hobbies"];
 			}
-		echo "Username: ".$_POST["uname"]."<br>";
+		/*echo "Username: ".$_POST["uname"]."<br>";
 		echo "Password: ".$_POST["pass"]."<br>";
 		echo "Gender: ".$_POST["gender"]."<br>";
 		$arr=$_POST["hobbies"];$flag=0;
@@ -89,7 +89,7 @@
 		}
 		echo"<br>";
 		echo "Profession: ".$_POST["profession"]."<br>";
-		echo "Bio: ".$_POST["bio"]."<br>";
+		echo "Bio: ".$_POST["bio"]."<br>";*/
 		}
 ?>
 <html>
@@ -101,23 +101,23 @@
 			<table>
 				<tr>
 					<td><span >Username</span></td>
-					<td>: <input type="text" name="uname" value="<?php echo $uname;?>"> <span><?php echo $err_uname;?></span></td>
+					<td>: <input type="text" name="uname" value="<?php echo $uname;?>"> </td><td><span><?php echo $err_uname;?></span></td>
 				</tr>
 				<tr>
 					<td><span>Password</span></td>
-					<td>: <input type="password" name="pass" value="<?php echo $pass;?>"><span><?php echo $err_pass;?></span></td>
+					<td>: <input type="password" name="pass" value="<?php echo $pass;?>"> </td><td><span><?php echo $err_pass;?></span></td>
 				</tr>
 				<tr>
 				<td><span>Gender</span></td>
 				<td>: <input type="radio" name="gender" value="Male"><span>Male</span>
-				<input type="radio" name="gender" value="Female"><span>Female</span> <span> <?php echo $err_gender;?></span></td><br>
+				<input type="radio" name="gender" value="Female"><span>Female</span> </td><td><span> <?php echo $err_gender;?></span></td><br>
 				</tr>
 				<tr>
 				<td><span>Hobbies</span></td>
 					<td>: <input type="checkbox" value="Movies" name ="hobbies[]">Movies
 					<input type="checkbox"value="Music" name ="hobbies[]">Music
 					<input type="checkbox"value="Games" name ="hobbies[]">Games
-					<input type="checkbox"value="Garden" name ="hobbies[]">Garden <span><?php $err_hobby;?></span></td></br>
+					<input type="checkbox"value="Garden" name ="hobbies[]">Garden</td><td> <span><?php echo $err_hobbies;?></span></td></br>
 				</tr>
 				<tr>
 				<td><span>Profession</span></td>
@@ -126,12 +126,12 @@
 					<option>Teaching</option>
 					<option>Service</option>
 					<option>Business</option>
-					</select> <span><?php echo $err_prof;?></span> </td>
+					</select> </td><td><span><?php echo $err_profession;?></span> </td>
 				</tr>
 				<tr>
 				<td><span>Bio</span></td>
-				<td>: <textarea name="bio" ></textarea>
-				<span><?php echo $err_bio;?></span></td>
+				<td>: <textarea name="bio" ></textarea></td>
+				<td><span><?php echo $err_bio;?></span></td>
 				</tr>
 				<tr>
 				<td>
