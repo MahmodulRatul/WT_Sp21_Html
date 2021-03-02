@@ -1,7 +1,7 @@
 <html>
 <body>
-<a href="My CV-Home.html"><img src="Ratul-Blue.jpg" alt="CV Home" style="width: 50px;height:50px;"></a></br>
-<a href = "My CV-Home.html" target="_Blank">Go to</br>CV Home</a>
+<a href="My CV-Home.php"><img src="Ratul-Blue.jpg" alt="CV Home" style="width: 50px;height:50px;"></a></br>
+<a href = "My CV-Home.php" target="_Blank">Go to</br>CV Home</a>
 <h1><center>Address and Contact Directory of Mahmodul</center></h1>
 <center>
 <h4>Present Address:</h4>
@@ -39,16 +39,16 @@ Upazilla: Brahmanbaria Sadar, District: Brahmanbaria, Division: Chottagram, Bang
 
 <table>
 <tr>
-<td><a href = "My CV-Education.html" target="_Blank"><center>Educations</center></a></td>
-<td><a href = "My CV-Experiences.html" target="_Blank"><center>Experiences</center></a></td>
-<td><a href = "My CV-Skills.html" target="_Blank"><center>Skills</center></a></td>
+<td><a href = "My CV-Education.php" target="_Blank"><center>Educations</center></a></td>
+<td><a href = "My CV-Experiences.php" target="_Blank"><center>Experiences</center></a></td>
+<td><a href = "My CV-Skills.php" target="_Blank"><center>Skills</center></a></td>
 </tr>
 </table>
 
 <table>
 <tr>
-<td><a href = "My CV-References.html" target="_Blank"><center>References</center></a></td>
-<td><a href = "My CV-Cocurricular.html" target="_Blank"><center>Co-Curricular</center></a></td>
+<td><a href = "My CV-References.php" target="_Blank"><center>References</center></a></td>
+<td><a href = "My CV-Cocurricular.php" target="_Blank"><center>Co-Curricular</center></a></td>
 </tr>
 </table>
 <h4>Follow the links above for other details</h4>
