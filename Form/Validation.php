@@ -77,7 +77,7 @@
 			{
 				$hobbies=$_POST["hobbies"];
 			}
-		/*echo "Username: ".$_POST["uname"]."<br>";
+		echo "Username: ".$_POST["uname"]."<br>";
 		echo "Password: ".$_POST["pass"]."<br>";
 		echo "Gender: ".$_POST["gender"]."<br>";
 		$arr=$_POST["hobbies"];$flag=0;
@@ -89,7 +89,7 @@
 		}
 		echo"<br>";
 		echo "Profession: ".$_POST["profession"]."<br>";
-		echo "Bio: ".$_POST["bio"]."<br>";*/
+		echo "Bio: ".htmlspecialchars($_POST["bio"]."<br>");
 		}
 ?>
 <html>

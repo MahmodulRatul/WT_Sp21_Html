@@ -38,7 +38,7 @@
 			}
 			else
 			{
-				$name=$_POST["name"];
+				$name=htmlspecialchars ($_POST["name"]);
 			}
 			
 			if (strlen($_POST["uname"])<6)
@@ -175,7 +175,7 @@
 			{
 				$sources=$_POST["sources"];
 			}
-		echo "Name: ".htmlspecialchars($_POST["name"])."<br>";
+		echo "Name: ".$_POST["name"]."<br>";
 		echo "Password: ".htmlspecialchars($_POST["pass"])."<br>";
 		/*echo "Gender: ".$_POST["gender"]."<br>";
 		$arr=$_POST["hobbies"];$flag=0;
