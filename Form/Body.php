@@ -24,10 +24,11 @@
 				<tr>
 				<td><span>Hobbies</span></td>
 				<td>:</td>
-					<td><input type="checkbox" value="Movies" name ="hobbies[]">Movies
-					<input type="checkbox"value="Music" name ="hobbies[]">Music
-					<input type="checkbox"value="Games" name ="hobbies[]">Games
-					<input type="checkbox"value="Garden" name ="hobbies[]">Garden</td></br>
+					<td>
+					<input type="checkbox" value="Movies" name ="hobbies[]">Movies
+					<input type="checkbox" value="Music" name ="hobbies[]">Music
+					<input type="checkbox" value="Games" name ="hobbies[]">Games
+					<input type="checkbox" value="Garden" name ="hobbies[]">Garden</td></br>
 				</tr>
 				<tr>
 				<td><span>Profession</span></td>
