@@ -8,6 +8,7 @@
                     <span><a  style="text-decoration:none" href="editorder.php" target="_self" >Edit Orders &nbsp</a> </span>
 					<span><a  style="text-decoration:none" href="removeorder.php" target="_self" >Remove Orders &nbsp</a> </span>
 					<span><a  style="text-decoration:none" href="admin.php" target="_self" >Back &nbsp</a> </span>
+					<span><a  style="text-decoration:none" href="Return_Product.php" target="_self" >Return Product &nbsp</a> </span>
               </h2>
 	<center>			
 		<table border="1" style="border-collapse:collapse;">
